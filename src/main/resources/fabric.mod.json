@@ -1,16 +1,16 @@
 {
   "schemaVersion": 1,
-  "id": "bedrockpickaxe",
+  "id": "modernkit",
   "version": "${version}",
-  "name": "Bedrock Pickaxe",
-  "description": "Adds a pickaxe that can mine bedrock in survival mode.",
+  "name": "ModernKit",
+  "description": "Modern Minecraft items backported to 1.16.5.",
   "authors": ["GItUser1928307"],
   "license": "MIT",
   "environment": "*",
   "entrypoints": {
-    "main": ["com.example.bedrockpickaxe.BedrockPickaxeMod"]
+    "main": ["com.example.modernkit.ModernKitMod"]
   },
-  "mixins": ["bedrockpickaxe.mixins.json"],
+  "mixins": ["modernkit.mixins.json"],
   "depends": {
     "fabricloader": ">=0.14.0",
     "fabric": "*",

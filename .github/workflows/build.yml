@@ -18,7 +18,7 @@ jobs:
       - run: ./gradlew build
       - uses: actions/upload-artifact@v4
         with:
-          name: bedrock-pickaxe
+          name: modernkit
           path: |
             build/libs/*.jar
             !build/libs/*-sources.jar

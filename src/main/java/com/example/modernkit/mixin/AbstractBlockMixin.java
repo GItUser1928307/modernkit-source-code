@@ -1,6 +1,6 @@
-package com.example.bedrockpickaxe.mixin;
+package com.example.modernkit.mixin;
 
-import com.example.bedrockpickaxe.item.ModItems;
+import com.example.modernkit.item.ModItems;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -19,7 +19,7 @@ import java.util.List;
 @Mixin(AbstractBlock.class)
 public abstract class AbstractBlockMixin {
     @Inject(method = "getDroppedStacks", at = @At("HEAD"), cancellable = true)
-    private void bedrockpickaxe$dropBedrock(BlockState state, LootContext.Builder builder, CallbackInfoReturnable<List<ItemStack>> cir) {
+    private void modernkit$dropBedrock(BlockState state, LootContext.Builder builder, CallbackInfoReturnable<List<ItemStack>> cir) {
         ItemStack tool = builder.getNullable(LootContextParameters.TOOL);
         if (state.isOf(Blocks.BEDROCK) && tool != null && tool.getItem() == ModItems.BEDROCK_PICKAXE) {
             cir.setReturnValue(Collections.singletonList(new ItemStack(Items.BEDROCK)));

@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "minecraft:blaze_rod" },
+    { "item": "minecraft:phantom_membrane" }
+  ],
+  "result": { "item": "modernkit:breeze_rod", "count": 1 }
+}

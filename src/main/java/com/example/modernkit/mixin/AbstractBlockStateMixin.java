@@ -1,6 +1,6 @@
-package com.example.bedrockpickaxe.mixin;
+package com.example.modernkit.mixin;
 
-import com.example.bedrockpickaxe.item.ModItems;
+import com.example.modernkit.item.ModItems;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -18,7 +18,7 @@ public abstract class AbstractBlockStateMixin {
     private static final float BEDROCK_HARDNESS = 25.0F;
 
     @Inject(method = "calcBlockBreakingDelta", at = @At("HEAD"), cancellable = true)
-    private void bedrockpickaxe$mineBedrock(PlayerEntity player, BlockView world, BlockPos pos, CallbackInfoReturnable<Float> cir) {
+    private void modernkit$mineBedrock(PlayerEntity player, BlockView world, BlockPos pos, CallbackInfoReturnable<Float> cir) {
         BlockState state = (BlockState) (Object) this;
         if (state.isOf(Blocks.BEDROCK) && player.getMainHandStack().getItem() == ModItems.BEDROCK_PICKAXE) {
             cir.setReturnValue(player.getBlockBreakingSpeed(state) / BEDROCK_HARDNESS / 30.0F);

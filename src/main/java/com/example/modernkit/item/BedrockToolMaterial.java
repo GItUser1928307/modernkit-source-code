@@ -1,4 +1,4 @@
-package com.example.bedrockpickaxe.item;
+package com.example.modernkit.item;
 
 import net.minecraft.item.Items;
 import net.minecraft.item.ToolMaterial;

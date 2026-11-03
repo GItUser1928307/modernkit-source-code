@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "H",
+    "R"
+  ],
+  "key": {
+    "H": { "item": "modernkit:heavy_core" },
+    "R": { "item": "modernkit:breeze_rod" }
+  },
+  "result": { "item": "modernkit:mace", "count": 1 }
+}
