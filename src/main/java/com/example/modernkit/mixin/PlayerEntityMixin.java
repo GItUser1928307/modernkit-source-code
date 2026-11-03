@@ -31,6 +31,8 @@ public abstract class PlayerEntityMixin {
         boolean hit = target.damage(source, amount + SmashAttack.bonusDamage(fall));
 
         if (hit && !self.world.isClient) {
+            // Phase 3: effects
+            SmashAttack.doEffects(self, target, fall);
             SmashAttack.knockbackNearby(self, target, fall);
             self.fallDistance = 0.0F;
             this.modernkit$smashNoFall = true;
@@ -42,7 +44,6 @@ public abstract class PlayerEntityMixin {
         return hit;
     }
 
-    // No fall damage for the rest of the fall after a successful smash
     @Inject(method = "damage", at = @At("HEAD"), cancellable = true)
     private void modernkit$cancelFall(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
         if (this.modernkit$smashNoFall && source == DamageSource.FALL) {
