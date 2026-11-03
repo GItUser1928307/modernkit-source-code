@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "id": "bedrockpickaxe",
+  "version": "${version}",
+  "name": "Bedrock Pickaxe",
+  "description": "Adds a pickaxe that can mine bedrock in survival mode.",
+  "authors": ["GItUser1928307"],
+  "license": "MIT",
+  "environment": "*",
+  "entrypoints": {
+    "main": ["com.example.bedrockpickaxe.BedrockPickaxeMod"]
+  },
+  "mixins": ["bedrockpickaxe.mixins.json"],
+  "depends": {
+    "fabricloader": ">=0.14.0",
+    "fabric": "*",
+    "minecraft": "1.16.x"
+  }
+}
