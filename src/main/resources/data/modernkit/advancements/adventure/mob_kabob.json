@@ -1,0 +1,28 @@
+{
+  "parent": "minecraft:adventure/kill_a_mob",
+  "display": {
+    "icon": {
+      "item": "modernkit:diamond_spear"
+    },
+    "title": {
+      "translate": "advancements.modernkit.mob_kabob.title"
+    },
+    "description": {
+      "translate": "advancements.modernkit.mob_kabob.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "five_mobs": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "five_mobs"
+    ]
+  ]
+}

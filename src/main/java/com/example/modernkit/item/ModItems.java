@@ -15,11 +15,38 @@ public class ModItems {
     public static final Item BREEZE_ROD = new Item(new Item.Settings().group(ItemGroup.MISC));
     public static final Item MACE = new MaceItem(new Item.Settings().group(ItemGroup.COMBAT));
 
+    // ModernKit spear collection
+    public static final SpearItem WOODEN_SPEAR =
+            new SpearItem(SpearMaterial.WOODEN);
+
+    public static final SpearItem STONE_SPEAR =
+            new SpearItem(SpearMaterial.STONE);
+
+    public static final SpearItem GOLDEN_SPEAR =
+            new SpearItem(SpearMaterial.GOLDEN);
+
+    public static final SpearItem IRON_SPEAR =
+            new SpearItem(SpearMaterial.IRON);
+
+    public static final SpearItem DIAMOND_SPEAR =
+            new SpearItem(SpearMaterial.DIAMOND);
+
+    public static final SpearItem NETHERITE_SPEAR =
+            new SpearItem(SpearMaterial.NETHERITE);
+
     public static void register() {
         register("bedrock_pickaxe", BEDROCK_PICKAXE);
         register("heavy_core", HEAVY_CORE);
         register("breeze_rod", BREEZE_ROD);
         register("mace", MACE);
+
+        // Register all six spear variants
+        register("wooden_spear", WOODEN_SPEAR);
+        register("stone_spear", STONE_SPEAR);
+        register("golden_spear", GOLDEN_SPEAR);
+        register("iron_spear", IRON_SPEAR);
+        register("diamond_spear", DIAMOND_SPEAR);
+        register("netherite_spear", NETHERITE_SPEAR);
     }
 
     private static void register(String name, Item item) {

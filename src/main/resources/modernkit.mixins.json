@@ -5,9 +5,19 @@
   "mixins": [
     "AbstractBlockMixin",
     "AbstractBlockStateMixin",
-    "PlayerEntityMixin"
+    "PlayerEntityMixin",
+    "LivingEntityInvoker",
+    "EnchantmentMixin",
+    "ZombieEntityMixin",
+    "PiglinEntityMixin",
+    "MobEntityMixin"
   ],
   "injectors": {
     "defaultRequire": 1
-  }
+  },
+  "client": [
+    "MinecraftClientMixin",
+    "HeldItemRendererMixin",
+    "PlayerEntityModelMixin"
+  ]
 }

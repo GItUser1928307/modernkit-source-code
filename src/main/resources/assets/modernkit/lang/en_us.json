@@ -2,5 +2,14 @@
   "item.modernkit.bedrock_pickaxe": "Bedrock Pickaxe",
   "item.modernkit.heavy_core": "Heavy Core",
   "item.modernkit.breeze_rod": "Breeze Rod",
-  "item.modernkit.mace": "Mace"
+  "item.modernkit.mace": "Mace",
+  "item.modernkit.wooden_spear": "Wooden Spear",
+  "item.modernkit.stone_spear": "Stone Spear",
+  "item.modernkit.golden_spear": "Golden Spear",
+  "item.modernkit.iron_spear": "Iron Spear",
+  "item.modernkit.diamond_spear": "Diamond Spear",
+  "item.modernkit.netherite_spear": "Netherite Spear",
+  "enchantment.modernkit.lunge": "Lunge",
+  "advancements.modernkit.mob_kabob.title": "Mob Kabob",
+  "advancements.modernkit.mob_kabob.description": "Hit five mobs in the same Charge attack using a Spear"
 }
