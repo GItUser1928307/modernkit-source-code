@@ -2,7 +2,10 @@
   "required": true,
   "package": "com.example.bedrockpickaxe.mixin",
   "compatibilityLevel": "JAVA_8",
-  "mixins": [],
+  "mixins": [
+    "AbstractBlockMixin",
+    "AbstractBlockStateMixin"
+  ],
   "injectors": {
     "defaultRequire": 1
   }
