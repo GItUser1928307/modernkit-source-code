@@ -37,8 +37,8 @@ public class WindChargeItem extends Item {
             projectile.setItem(new ItemStack(this));
             projectile.setProperties(
                     user,
-                    user.getPitch(),
-                    user.getYaw(),
+                    user.getPitch(1.0F),
+                    user.getYaw(1.0F),
                     0.0F,
                     1.5F,
                     1.0F
