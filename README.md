@@ -9,6 +9,9 @@ A Fabric mod for Minecraft Java 1.16.5 that adds a pickaxe able to mine bedrock 
 - Bedrock drops itself when mined with the pickaxe
 - Normal tools still cannot break bedrock
 - Works alongside Sodium and Iris
+- Wind Charge: throwable, stackable charges that launch nearby entities and activate compatible utility blocks
+
+Wind Charges are crafted shapelessly from one Breeze Rod for four charges. Their wind burst can press buttons, toggle levers, wooden doors, trapdoors and fence gates, ring bells, and break chorus flowers. Candles and decorated pots are not present in Minecraft 1.16.5.
 
 ## Recipe
 

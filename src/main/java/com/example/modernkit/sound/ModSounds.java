@@ -13,6 +13,8 @@ public final class ModSounds {
     public static SoundEvent SPEAR_CHARGE_ENGAGED;
     public static SoundEvent SPEAR_CHARGE_TIRED;
     public static SoundEvent SPEAR_CHARGE_DISENGAGED;
+    public static SoundEvent WIND_CHARGE_THROW;
+    public static SoundEvent WIND_CHARGE_BURST;
 
     private ModSounds() {
     }
@@ -30,6 +32,9 @@ public final class ModSounds {
                 registerSound("entity.modernkit.spear.charge_tired");
         SPEAR_CHARGE_DISENGAGED =
                 registerSound("entity.modernkit.spear.charge_disengaged");
+        WIND_CHARGE_THROW = registerSound("item.modernkit.wind_charge.throw");
+        WIND_CHARGE_BURST =
+                registerSound("entity.modernkit.wind_charge.burst");
     }
 
     private static SoundEvent registerSound(String path) {

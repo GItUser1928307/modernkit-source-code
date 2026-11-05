@@ -14,6 +14,7 @@ public class ModItems {
     public static final Item HEAVY_CORE = new Item(new Item.Settings().group(ItemGroup.MISC));
     public static final Item BREEZE_ROD = new Item(new Item.Settings().group(ItemGroup.MISC));
     public static final Item MACE = new MaceItem(new Item.Settings().group(ItemGroup.COMBAT));
+    public static final Item WIND_CHARGE = new WindChargeItem();
 
     // ModernKit spear collection
     public static final SpearItem WOODEN_SPEAR =
@@ -39,6 +40,7 @@ public class ModItems {
         register("heavy_core", HEAVY_CORE);
         register("breeze_rod", BREEZE_ROD);
         register("mace", MACE);
+        register("wind_charge", WIND_CHARGE);
 
         // Register all six spear variants
         register("wooden_spear", WOODEN_SPEAR);

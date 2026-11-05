@@ -38,5 +38,29 @@
         "type": "event"
       }
     ]
+  },
+  "item.modernkit.wind_charge.throw": {
+    "sounds": [
+      {
+        "name": "minecraft:item.trident.throw",
+        "type": "event"
+      }
+    ]
+  },
+  "entity.modernkit.wind_charge.burst": {
+    "sounds": [
+      {
+        "name": "entity/wind_charge/wind_burst1",
+        "type": "file"
+      },
+      {
+        "name": "entity/wind_charge/wind_burst2",
+        "type": "file"
+      },
+      {
+        "name": "entity/wind_charge/wind_burst3",
+        "type": "file"
+      }
+    ]
   }
 }

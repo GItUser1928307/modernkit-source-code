@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "modernkit:breeze_rod"
+    }
+  ],
+  "result": {
+    "item": "modernkit:wind_charge",
+    "count": 4
+  }
+}

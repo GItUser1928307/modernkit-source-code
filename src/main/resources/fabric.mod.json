@@ -8,7 +8,8 @@
   "license": "MIT",
   "environment": "*",
   "entrypoints": {
-    "main": ["com.example.modernkit.ModernKitMod"]
+    "main": ["com.example.modernkit.ModernKitMod"],
+    "client": ["com.example.modernkit.client.WindChargeClient"]
   },
   "mixins": ["modernkit.mixins.json"],
   "depends": {
