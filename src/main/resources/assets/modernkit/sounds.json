@@ -1,0 +1,42 @@
+{
+  "entity.modernkit.spear.jab_start": {
+    "sounds": [
+      {
+        "name": "minecraft:entity.player.attack.sweep",
+        "type": "event"
+      }
+    ]
+  },
+  "entity.modernkit.spear.jab_impact": {
+    "sounds": [
+      {
+        "name": "minecraft:item.trident.hit",
+        "type": "event"
+      }
+    ]
+  },
+  "entity.modernkit.spear.charge_engaged": {
+    "sounds": [
+      {
+        "name": "minecraft:item.trident.throw",
+        "type": "event"
+      }
+    ]
+  },
+  "entity.modernkit.spear.charge_tired": {
+    "sounds": [
+      {
+        "name": "minecraft:entity.player.attack.weak",
+        "type": "event"
+      }
+    ]
+  },
+  "entity.modernkit.spear.charge_disengaged": {
+    "sounds": [
+      {
+        "name": "minecraft:entity.player.attack.nodamage",
+        "type": "event"
+      }
+    ]
+  }
+}

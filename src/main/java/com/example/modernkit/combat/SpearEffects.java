@@ -1,12 +1,13 @@
 package com.example.modernkit.combat;
 
+import com.example.modernkit.sound.ModSounds;
+
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
-import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.Vec3d;
 
 /**
@@ -52,7 +53,7 @@ public final class SpearEffects {
 
         playSound(
                 player,
-                SoundEvents.ENTITY_PLAYER_ATTACK_SWEEP,
+                ModSounds.SPEAR_JAB_START,
                 0.65F,
                 1.15F
         );
@@ -97,7 +98,7 @@ public final class SpearEffects {
                 x,
                 y,
                 z,
-                SoundEvents.ITEM_TRIDENT_HIT,
+                ModSounds.SPEAR_JAB_IMPACT,
                 SoundCategory.PLAYERS,
                 0.75F,
                 1.1F
@@ -146,21 +147,21 @@ public final class SpearEffects {
         switch (state) {
 
             case ENGAGED:
-                sound = SoundEvents.ITEM_TRIDENT_THROW;
+                sound = ModSounds.SPEAR_CHARGE_ENGAGED;
                 volume = 0.40F;
                 pitch = 0.85F;
                 particleCount = 6;
                 break;
 
             case TIRED:
-                sound = SoundEvents.ENTITY_PLAYER_ATTACK_WEAK;
+                sound = ModSounds.SPEAR_CHARGE_TIRED;
                 volume = 0.35F;
                 pitch = 0.85F;
                 particleCount = 4;
                 break;
 
             case DISENGAGED:
-                sound = SoundEvents.ENTITY_PLAYER_ATTACK_NODAMAGE;
+                sound = ModSounds.SPEAR_CHARGE_DISENGAGED;
                 volume = 0.30F;
                 pitch = 0.75F;
                 particleCount = 3;
@@ -233,7 +234,7 @@ public final class SpearEffects {
                 x,
                 y,
                 z,
-                SoundEvents.ITEM_TRIDENT_HIT,
+                ModSounds.SPEAR_JAB_IMPACT,
                 SoundCategory.PLAYERS,
                 volume,
                 pitch

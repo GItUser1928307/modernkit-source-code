@@ -7,6 +7,7 @@ import com.example.modernkit.item.ModItems;
 import com.example.modernkit.loot.SpearWorldLoot;
 import com.example.modernkit.enchantment.ModEnchantments;
 import com.example.modernkit.network.SpearPackets;
+import com.example.modernkit.sound.ModSounds;
 import net.fabricmc.api.ModInitializer;
 
 public class ModernKitMod implements ModInitializer {
@@ -15,6 +16,7 @@ public class ModernKitMod implements ModInitializer {
 
     @Override
     public void onInitialize() {
+        ModSounds.register();
         ModItems.register();
         ModEnchantments.register();
         SpearWorldLoot.register();
