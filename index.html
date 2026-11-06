@@ -259,6 +259,24 @@
             margin: 12px 0;
         }
 
+        .navigation-highlight {
+            animation: navigation-highlight 1.2s ease-out;
+        }
+
+        @keyframes navigation-highlight {
+            0% {
+                box-shadow: 0 0 0 0 rgba(139, 212, 80, 0.75);
+            }
+
+            45% {
+                box-shadow: 0 0 0 7px rgba(139, 212, 80, 0.28);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(139, 212, 80, 0);
+            }
+        }
+
         .loading {
             color: var(--muted);
             font-size: 14px;
@@ -285,6 +303,12 @@
             .nav-links {
                 gap: 12px;
                 font-size: 12px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .navigation-highlight {
+                animation: none;
             }
         }
     </style>
@@ -385,6 +409,23 @@
 
         const readmeContainer =
             document.getElementById("readme-content");
+
+        document.querySelectorAll('.nav-links a[href^="#"]').forEach(link => {
+            link.addEventListener("click", () => {
+                const targetId = link.getAttribute("href").slice(1);
+                const target = targetId === "documentation"
+                    ? readmeContainer
+                    : document.getElementById(targetId);
+
+                if (!target) {
+                    return;
+                }
+
+                target.classList.remove("navigation-highlight");
+                void target.offsetWidth;
+                target.classList.add("navigation-highlight");
+            });
+        });
 
 
         // Safely escape HTML
