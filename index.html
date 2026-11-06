@@ -259,6 +259,34 @@
             margin: 12px 0;
         }
 
+        .readme-table-wrap {
+            max-width: 100%;
+            overflow-x: auto;
+            margin: 15px 0;
+        }
+
+        .readme table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        .readme th,
+        .readme td {
+            padding: 9px 12px;
+            border: 1px solid var(--border);
+            vertical-align: top;
+        }
+
+        .readme th {
+            background: #202020;
+            color: var(--text);
+        }
+
+        .readme td {
+            color: #c4c4c4;
+        }
+
         .navigation-highlight {
             animation: navigation-highlight 1.2s ease-out;
         }
@@ -551,7 +579,30 @@
                 }
             }
 
-            for (const line of lines) {
+            function splitTableRow(row) {
+                return row.trim()
+                    .replace(/^\|/, "")
+                    .replace(/\|$/, "")
+                    .split("|")
+                    .map(cell => cell.trim().replace(/\\\|/g, "|"));
+            }
+
+            function tableAlignments(separator) {
+                return splitTableRow(separator).map(cell => {
+                    if (/^:-{3,}:$/.test(cell)) {
+                        return "center";
+                    }
+
+                    if (/^-{3,}:$/.test(cell)) {
+                        return "right";
+                    }
+
+                    return "left";
+                });
+            }
+
+            for (let lineIndex = 0; lineIndex < lines.length; lineIndex++) {
+                const line = lines[lineIndex];
                 const trimmed = line.trim();
 
                 if (trimmed.startsWith("```")) {
@@ -579,6 +630,41 @@
 
                 if (inCode) {
                     codeLines.push(line);
+                    continue;
+                }
+
+                if (
+                    trimmed.includes("|") &&
+                    lineIndex + 1 < lines.length &&
+                    /^\|?\s*:?-{3,}:?\s*(\|\s*:?-{3,}:?\s*)+\|?$/.test(lines[lineIndex + 1].trim())
+                ) {
+                    flushParagraph();
+                    closeList();
+
+                    const headers = splitTableRow(trimmed);
+                    const alignments = tableAlignments(lines[++lineIndex]);
+                    const formatCells = (cells, isHeader = false) => headers.map((header, index) => {
+                        const content = cells[index] || "";
+                        const alignment = alignments[index] || "left";
+                        const tag = isHeader ? "th" : "td";
+                        const scope = isHeader ? ' scope="col"' : "";
+
+                        return `<${tag}${scope} style="text-align: ${alignment}">${renderInline(content)}</${tag}>`;
+                    }).join("");
+
+                    html += '<div class="readme-table-wrap"><table><thead><tr>' +
+                        formatCells(headers, true) +
+                        "</tr></thead><tbody>";
+
+                    while (
+                        lineIndex + 1 < lines.length &&
+                        lines[lineIndex + 1].trim().includes("|")
+                    ) {
+                        const cells = splitTableRow(lines[++lineIndex].trim());
+                        html += "<tr>" + formatCells(cells) + "</tr>";
+                    }
+
+                    html += "</tbody></table></div>";
                     continue;
                 }
 
