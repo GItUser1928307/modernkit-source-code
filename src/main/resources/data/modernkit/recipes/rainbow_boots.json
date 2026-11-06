@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "I I",
+    "I I"
+  ],
+  "key": {
+    "I": {
+      "item": "modernkit:rainbow_ingot"
+    }
+  },
+  "result": {
+    "item": "modernkit:rainbow_boots",
+    "count": 1
+  }
+}

@@ -12,5 +12,12 @@
   "item.modernkit.netherite_spear": "Netherite Spear",
   "enchantment.modernkit.lunge": "Lunge",
   "advancements.modernkit.mob_kabob.title": "Mob Kabob",
-  "advancements.modernkit.mob_kabob.description": "Hit five mobs in the same Charge attack using a Spear"
+  "advancements.modernkit.mob_kabob.description": "Hit five mobs in the same Charge attack using a Spear",
+  "item.modernkit.rainbow_ingot": "Rainbow Ingot",
+  "item.modernkit.rainbow_sword": "Rainbow Sword",
+  "item.modernkit.rainbow_pickaxe": "Rainbow Pickaxe",
+  "item.modernkit.rainbow_helmet": "Rainbow Helmet",
+  "item.modernkit.rainbow_chestplate": "Rainbow Chestplate",
+  "item.modernkit.rainbow_leggings": "Rainbow Leggings",
+  "item.modernkit.rainbow_boots": "Rainbow Boots"
 }
