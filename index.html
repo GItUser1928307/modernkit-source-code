@@ -1,0 +1,686 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#101010">
+
+    <title>ModernKit — Download</title>
+
+    <meta name="description" content="Download ModernKit, bringing newer Minecraft items into older Minecraft versions.">
+
+    <style>
+        :root {
+            --bg: #101010;
+            --surface: #181818;
+            --surface-hover: #202020;
+            --border: #303030;
+            --text: #f5f5f5;
+            --muted: #a0a0a0;
+            --accent: #8bd450;
+            --accent-hover: #a2e86a;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: Inter, -apple-system, BlinkMacSystemFont,
+                "Segoe UI", sans-serif;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            width: min(900px, calc(100% - 40px));
+            margin: auto;
+        }
+
+        header {
+            border-bottom: 1px solid var(--border);
+            padding: 20px 0;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .brand {
+            color: var(--text);
+            font-size: 20px;
+            font-weight: 750;
+            letter-spacing: -0.7px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            font-size: 14px;
+        }
+
+        .hero {
+            padding: 85px 0 65px;
+            text-align: center;
+        }
+
+        .logo {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 {
+            font-size: clamp(36px, 7vw, 58px);
+            line-height: 1.1;
+            letter-spacing: -2px;
+            margin-bottom: 16px;
+        }
+
+        .hero p {
+            color: var(--muted);
+            max-width: 560px;
+            margin: 0 auto;
+            font-size: 16px;
+        }
+
+        .download-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 28px;
+            margin-bottom: 65px;
+        }
+
+        .download-card h2 {
+            font-size: 21px;
+            margin-bottom: 8px;
+        }
+
+        .download-card > p {
+            color: var(--muted);
+            font-size: 14px;
+            margin-bottom: 22px;
+        }
+
+        .download-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 14px 20px;
+            border-radius: 9px;
+            background: var(--accent);
+            color: #101010;
+            font-weight: 750;
+            font-size: 15px;
+            transition: background 0.2s, transform 0.2s;
+        }
+
+        .download-button:hover {
+            background: var(--accent-hover);
+            text-decoration: none;
+            transform: translateY(-2px);
+        }
+
+        .download-button.disabled {
+            background: #383838;
+            color: #999;
+            pointer-events: none;
+        }
+
+        .status {
+            margin-top: 14px;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .section-title {
+            font-size: 25px;
+            letter-spacing: -0.6px;
+            margin-bottom: 20px;
+        }
+
+        .readme {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 28px;
+            margin-bottom: 65px;
+            overflow-wrap: anywhere;
+        }
+
+        .readme h1,
+        .readme h2,
+        .readme h3,
+        .readme h4 {
+            line-height: 1.3;
+            margin: 25px 0 12px;
+            letter-spacing: -0.4px;
+        }
+
+        .readme h1 {
+            font-size: 29px;
+        }
+
+        .readme h2 {
+            font-size: 24px;
+        }
+
+        .readme h3 {
+            font-size: 20px;
+        }
+
+        .readme h4 {
+            font-size: 17px;
+        }
+
+        .readme h1:first-child,
+        .readme h2:first-child,
+        .readme h3:first-child {
+            margin-top: 0;
+        }
+
+        .readme p {
+            color: #c4c4c4;
+            margin: 12px 0;
+        }
+
+        .readme ul,
+        .readme ol {
+            padding-left: 25px;
+            margin: 12px 0;
+            color: #c4c4c4;
+        }
+
+        .readme li {
+            margin: 5px 0;
+        }
+
+        .readme blockquote {
+            border-left: 3px solid var(--accent);
+            padding: 8px 15px;
+            margin: 15px 0;
+            background: #202020;
+            color: var(--muted);
+        }
+
+        .readme pre {
+            background: #101010;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 16px;
+            overflow-x: auto;
+            margin: 15px 0;
+        }
+
+        .readme code {
+            background: #292929;
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-family: Consolas, monospace;
+            font-size: 0.9em;
+        }
+
+        .readme pre code {
+            background: transparent;
+            padding: 0;
+        }
+
+        .readme hr {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 22px 0;
+        }
+
+        .readme img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .loading {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 25px 0;
+            color: var(--muted);
+            font-size: 13px;
+            text-align: center;
+        }
+
+        @media (max-width: 600px) {
+            .hero {
+                padding: 60px 0 45px;
+            }
+
+            .download-card,
+            .readme {
+                padding: 20px;
+            }
+
+            .nav-links {
+                gap: 12px;
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="container nav">
+            <a class="brand" href="./">ModernKit</a>
+
+            <nav class="nav-links">
+                <a href="#download">Download</a>
+                <a href="#documentation">Documentation</a>
+                <a href="https://github.com/GitUser1928307/modernkit-source-code"
+                   target="_blank" rel="noopener noreferrer">GitHub</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <section class="hero">
+            <img
+                class="logo"
+                src="https://raw.githubusercontent.com/GitUser1928307/modernkit-source-code/main/images/modernkit-modrinth-256.png"
+                alt="ModernKit logo"
+            >
+
+            <h1>ModernKit</h1>
+
+            <p>
+                Bringing newer Minecraft items into older Minecraft versions.
+                Experience modern Minecraft features without leaving your
+                favorite older versions behind.
+            </p>
+        </section>
+
+        <section class="download-card" id="download">
+            <h2>Download ModernKit</h2>
+
+            <p>
+                Get the latest available ModernKit JAR from this repository.
+            </p>
+
+            <a
+                id="download-button"
+                class="download-button disabled"
+                href="#download"
+                aria-disabled="true"
+            >
+                Checking for downloads...
+            </a>
+
+            <div class="status" id="download-status" aria-live="polite">
+                Searching the dist directory...
+            </div>
+        </section>
+
+        <section id="documentation">
+            <h2 class="section-title">About ModernKit</h2>
+
+            <div class="readme" id="readme-content">
+                <p class="loading">Loading project documentation...</p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            ModernKit · Open-source Minecraft mod
+
+            <br>
+
+            <a
+                href="https://github.com/GitUser1928307/modernkit-source-code"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                View source code on GitHub
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        // Repository configuration
+        const GITHUB_USER = "GitUser1928307";
+        const GITHUB_REPO = "modernkit-source-code";
+        const DIST_PATH = "dist";
+
+        const downloadButton =
+            document.getElementById("download-button");
+
+        const downloadStatus =
+            document.getElementById("download-status");
+
+        const readmeContainer =
+            document.getElementById("readme-content");
+
+
+        // Safely escape HTML
+        function escapeHTML(value) {
+            return String(value).replace(/[&<>"']/g, char => ({
+                "&": "&amp;",
+                "<": "&lt;",
+                ">": "&gt;",
+                '"': "&quot;",
+                "'": "&#39;"
+            })[char]);
+        }
+
+
+        // Convert basic inline Markdown
+        function renderInline(text) {
+            let html = escapeHTML(text);
+
+            html = html.replace(
+                /`([^`]+)`/g,
+                "<code>$1</code>"
+            );
+
+            html = html.replace(
+                /\*\*(.*?)\*\*/g,
+                "<strong>$1</strong>"
+            );
+
+            html = html.replace(
+                /__(.*?)__/g,
+                "<strong>$1</strong>"
+            );
+
+            html = html.replace(
+                /\*(.*?)\*/g,
+                "<em>$1</em>"
+            );
+
+            html = html.replace(
+                /~~(.*?)~~/g,
+                "<del>$1</del>"
+            );
+
+            html = html.replace(
+                /\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g,
+                '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>'
+            );
+
+            return html;
+        }
+
+
+        // Convert Markdown blocks into HTML
+        function renderMarkdown(markdown) {
+            const lines = markdown.replace(/\r/g, "").split("\n");
+
+            let html = "";
+            let paragraph = [];
+            let listType = null;
+            let inCode = false;
+            let codeLines = [];
+            let codeLanguage = "";
+
+            function flushParagraph() {
+                if (paragraph.length) {
+                    html += "<p>" +
+                        paragraph.map(renderInline).join("<br>") +
+                        "</p>";
+
+                    paragraph = [];
+                }
+            }
+
+            function closeList() {
+                if (listType) {
+                    html += `</${listType}>`;
+                    listType = null;
+                }
+            }
+
+            for (const line of lines) {
+                const trimmed = line.trim();
+
+                if (trimmed.startsWith("```")) {
+                    flushParagraph();
+                    closeList();
+
+                    if (!inCode) {
+                        inCode = true;
+                        codeLines = [];
+                        codeLanguage = trimmed.slice(3).trim();
+                    } else {
+                        const languageClass = codeLanguage
+                            ? ` class="language-${escapeHTML(codeLanguage)}"`
+                            : "";
+
+                        html += "<pre><code" + languageClass + ">" +
+                            escapeHTML(codeLines.join("\n")) +
+                            "</code></pre>";
+
+                        inCode = false;
+                    }
+
+                    continue;
+                }
+
+                if (inCode) {
+                    codeLines.push(line);
+                    continue;
+                }
+
+                if (!trimmed) {
+                    flushParagraph();
+                    closeList();
+                    continue;
+                }
+
+                const heading = trimmed.match(/^(#{1,6})\s+(.+)$/);
+
+                if (heading) {
+                    flushParagraph();
+                    closeList();
+
+                    const level = heading[1].length;
+
+                    html += `<h${level}>${renderInline(heading[2])}</h${level}>`;
+                    continue;
+                }
+
+                if (/^(-{3,}|\*{3,}|_{3,})$/.test(trimmed)) {
+                    flushParagraph();
+                    closeList();
+                    html += "<hr>";
+                    continue;
+                }
+
+                if (trimmed.startsWith(">")) {
+                    flushParagraph();
+                    closeList();
+
+                    html += "<blockquote>" +
+                        renderInline(trimmed.replace(/^>\s?/, "")) +
+                        "</blockquote>";
+
+                    continue;
+                }
+
+                const unordered = trimmed.match(/^[-*+]\s+(.+)$/);
+                const ordered = trimmed.match(/^\d+[.)]\s+(.+)$/);
+
+                if (unordered || ordered) {
+                    flushParagraph();
+
+                    const nextType = unordered ? "ul" : "ol";
+
+                    if (listType !== nextType) {
+                        closeList();
+                        listType = nextType;
+                        html += `<${listType}>`;
+                    }
+
+                    const content = unordered
+                        ? unordered[1]
+                        : ordered[1];
+
+                    html += `<li>${renderInline(content)}</li>`;
+                    continue;
+                }
+
+                closeList();
+                paragraph.push(trimmed);
+            }
+
+            if (inCode) {
+                html += "<pre><code>" +
+                    escapeHTML(codeLines.join("\n")) +
+                    "</code></pre>";
+            }
+
+            flushParagraph();
+            closeList();
+
+            return html;
+        }
+
+
+        // Discover JAR files in the dist directory
+        async function findDownloads() {
+            const apiURL =
+                `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/${DIST_PATH}`;
+
+            try {
+                const response = await fetch(apiURL, {
+                    headers: {
+                        "Accept": "application/vnd.github+json"
+                    }
+                });
+
+                if (!response.ok) {
+                    throw new Error(
+                        response.status === 404
+                            ? "The dist directory was not found."
+                            : `GitHub API returned HTTP ${response.status}.`
+                    );
+                }
+
+                const files = await response.json();
+
+                if (!Array.isArray(files)) {
+                    throw new Error("Unexpected directory response.");
+                }
+
+                const jarFiles = files.filter(file =>
+                    file.type === "file" &&
+                    file.name.toLowerCase().endsWith(".jar")
+                );
+
+                if (jarFiles.length === 0) {
+                    downloadButton.textContent = "No JAR available";
+                    downloadButton.classList.add("disabled");
+
+                    downloadStatus.textContent =
+                        "No .jar files were found in dist/.";
+
+                    return;
+                }
+
+                // Prefer alphabetical ordering for predictable selection
+                jarFiles.sort((a, b) =>
+                    a.name.localeCompare(b.name)
+                );
+
+                const selectedJar = jarFiles[0];
+
+                downloadButton.href =
+                    `./${DIST_PATH}/${encodeURIComponent(selectedJar.name)}`;
+
+                downloadButton.download = selectedJar.name;
+                downloadButton.classList.remove("disabled");
+                downloadButton.removeAttribute("aria-disabled");
+
+                downloadButton.textContent = "Download JAR mod";
+
+                downloadStatus.textContent =
+                    `${selectedJar.name}` +
+                    (jarFiles.length > 1
+                        ? ` · ${jarFiles.length} JAR files found`
+                        : " · Ready to download");
+
+            } catch (error) {
+                console.error("Download discovery failed:", error);
+
+                downloadButton.textContent = "Download unavailable";
+                downloadButton.classList.add("disabled");
+
+                downloadStatus.textContent = error.message;
+            }
+        }
+
+
+        // Fetch and display the project README
+        async function loadReadme() {
+            try {
+                const response = await fetch("./dist/README.txt", {
+                    cache: "no-store"
+                });
+
+                if (!response.ok) {
+                    throw new Error(
+                        `Could not load README.txt (HTTP ${response.status}).`
+                    );
+                }
+
+                const markdown = await response.text();
+
+                readmeContainer.innerHTML =
+                    renderMarkdown(markdown);
+
+            } catch (error) {
+                console.error("README loading failed:", error);
+
+                readmeContainer.innerHTML =
+                    `<p>${escapeHTML(error.message)}</p>
+                     <p>
+                        You can also read the documentation
+                        in the
+                        <a href="https://github.com/${GITHUB_USER}/${GITHUB_REPO}/blob/main/dist/README.txt">
+                            repository
+                        </a>.
+                     </p>`;
+            }
+        }
+
+
+        // Initialize the website
+        findDownloads();
+        loadReadme();
+
+    </script>
+
+</body>
+</html>
