@@ -2,6 +2,8 @@
 
 A Fabric mod for Minecraft Java **1.16.5** that backports modern Minecraft items and combat to the old version. It works alongside Sodium and Iris.
 
+![ModernKit](images/modernkit-modrinth-256.png)
+
 ## What's inside
 
 ### Bedrock Pickaxe
