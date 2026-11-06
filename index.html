@@ -252,9 +252,11 @@
         }
 
         .readme img {
+            display: block;
             max-width: 100%;
             height: auto;
             border-radius: 8px;
+            margin: 12px 0;
         }
 
         .loading {
@@ -373,6 +375,7 @@
         const GITHUB_USER = "GitUser1928307";
         const GITHUB_REPO = "modernkit-source-code";
         const DIST_PATH = "dist";
+        const README_URL = "./dist/README.txt";
 
         const downloadButton =
             document.getElementById("download-button");
@@ -395,10 +398,52 @@
             })[char]);
         }
 
+        function safeImageUrl(value) {
+            try {
+                const readmeUrl = new URL(README_URL, window.location.href);
+                const imageUrl = new URL(value, readmeUrl);
+
+                if (
+                    !["http:", "https:"].includes(imageUrl.protocol) ||
+                    imageUrl.username ||
+                    imageUrl.password
+                ) {
+                    return null;
+                }
+
+                return imageUrl.href;
+            } catch (error) {
+                if (error instanceof TypeError) {
+                    return null;
+                }
+
+                throw error;
+            }
+        }
+
 
         // Convert basic inline Markdown
         function renderInline(text) {
-            let html = escapeHTML(text);
+            const images = [];
+            let source = String(text).replace(
+                /!\[([^\]]*)\]\(([^)\s]+)\)/g,
+                (match, alt, url) => {
+                    const safeUrl = safeImageUrl(url);
+
+                    if (!safeUrl) {
+                        return match;
+                    }
+
+                    const placeholder = `\u0000IMG_${images.length}_TOKEN\u0000`;
+                    images.push(
+                        `<img src="${escapeHTML(safeUrl)}" alt="${escapeHTML(alt)}" loading="lazy" decoding="async">`
+                    );
+
+                    return placeholder;
+                }
+            );
+
+            let html = escapeHTML(source);
 
             html = html.replace(
                 /`([^`]+)`/g,
@@ -430,7 +475,10 @@
                 '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>'
             );
 
-            return html;
+            return html.replace(
+                /\u0000IMG_(\d+)_TOKEN\u0000/g,
+                (placeholder, index) => images[Number(index)] || placeholder
+            );
         }
 
 
@@ -645,7 +693,7 @@
         // Fetch and display the project README
         async function loadReadme() {
             try {
-                const response = await fetch("./dist/README.txt", {
+                const response = await fetch(README_URL, {
                     cache: "no-store"
                 });
 
