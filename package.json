@@ -1,0 +1,21 @@
+{
+  "name": "bedrock-mod",
+  "version": "1.0.0",
+  "description": "ModernKit: a Fabric mod for Minecraft Java 1.16.5 adding the Bedrock Pickaxe, Mace, Spears and Wind Charge.",
+  "scripts": {
+    "build:java": "node scripts/build-java.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GItUser1928307/bedrock-mod.git"
+  },
+  "keywords": ["minecraft", "fabric", "mod"],
+  "author": "GItUser1928307",
+  "license": "MIT",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/GItUser1928307/bedrock-mod/issues"
+  },
+  "homepage": "https://github.com/GItUser1928307/bedrock-mod#readme"
+}
