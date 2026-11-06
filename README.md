@@ -1,92 +1,93 @@
-# ModernKit
+# ⚒️ ModernKit
 
-A Fabric mod for Minecraft Java **1.16.5** that backports modern Minecraft items and combat to the old version. It works alongside Sodium and Iris.
+**Bringing newer Minecraft items into older Minecraft versions.**
 
-![ModernKit](images/modernkit-modrinth-256.png)
+![ModernKit](https://raw.githubusercontent.com/GItUser1928307/modernkit-source-code/main/images/modernkit-modrinth-256.png)
 
-## What's inside
+Ever wanted to experience some of Minecraft's newer items without leaving your favorite older versions behind?
 
-### Bedrock Pickaxe
-- Mines bedrock in survival (about 3 seconds per block), in singleplayer and on servers
-- Bedrock drops itself when mined with it
-- 4000 durability, fireproof, repairable with bedrock
-- Normal tools still cannot break bedrock
+**ModernKit** aims to bridge that gap by introducing items and equipment inspired by newer Minecraft updates into older versions, bringing new possibilities to your gameplay.
 
-### Mace
-- 6 damage, 0.6 attack speed, 500 durability, repaired with a Breeze Rod
-- **Smash attack:** after falling more than 1.5 blocks (and not gliding), you get bonus damage: +4 per block for the first 3 blocks, +2 for the next 5, +1 beyond that
-- A successful smash resets your fall damage, knocks back nearby mobs, and plays particle and sound effects
-- A missed swing keeps you falling
-- No sweep attack
+Whether you're smashing enemies with a Mace, launching Wind Charges, charging into battle with a Spear, or mining bedrock in survival, ModernKit brings more tools and equipment to your Minecraft world.
 
-### Spears (wooden, stone, golden, iron, diamond, netherite)
-- **Jab:** a left-click attack with material-based damage, reach and cooldown
-- **Charge:** hold right-click for a kinetic attack with Engaged, Tired and Disengaged stages
-- **Lunge** enchantment (levels I to III), exclusive to spears
-- Sharpness, Smite, Bane of Arthropods, Knockback, Fire Aspect and Looting work on spears (not Sweeping Edge)
-- First- and third-person spear animations, plus effects and sounds
-- **Mob Kabob** advancement: hit five mobs in a single charge
+---
 
-### Crafting items
-- **Heavy Core**, **Breeze Rod**
-- **Wind Charge**: a throwable projectile with custom sounds
+## ✨ What's Included?
 
-## Recipes
+### ⚔️ Weapons & Combat
+
+- **Mace** — Fall from a height and land a powerful smash attack. The longer the fall, the more damage you deal. A successful smash cancels your fall damage, knocks back nearby mobs, and plays impact effects.
+- **Spears** — Six variants: wooden, stone, golden, iron, diamond, and netherite. Jab with a quick attack, or hold to charge into enemies. Includes first- and third-person animations.
+- **Lunge Enchantment** — A spear-exclusive enchantment (levels I to III).
+- **Mob Kabob Advancement** — Hit five mobs with a single charge attack.
+
+### 🌪️ Wind & Breeze Items
+
+- **Wind Charge** — A throwable projectile with its own sounds.
+- **Breeze Rod** — Used to craft Wind Charges and the Mace, and to repair the Mace.
+- **Heavy Core** — The crafting component at the heart of the Mace.
+
+### ⛏️ Tools
+
+- **Bedrock Pickaxe** — Mine bedrock in survival mode! Bedrock drops itself when mined.
+
+### 🌈 Rainbow Set
+
+The most powerful gear in ModernKit, with animated rainbow icons.
+
+- **Rainbow Sword** — Massive damage and a very fast attack speed.
+- **Rainbow Pickaxe** — Breaks almost anything, obsidian included, nearly instantly.
+- **Rainbow Armor** (Helmet, Chestplate, Leggings, Boots) — Maximum protection and toughness, and full knockback immunity when you wear the whole set.
+- **Rainbow Ingot** — The crafting and repair material for the set.
+- Every Rainbow item is fireproof, enchantable, and has enormous durability.
+
+---
+
+## 🧰 Crafting Recipes
 
 | Item | Recipe |
 |---|---|
 | Bedrock Pickaxe | 3 Bedrock on top, 2 Sticks below |
-| Heavy Core | Netherite Ingot in the center, 4 Obsidian up, down, left and right |
-| Breeze Rod | Blaze Rod + Phantom Membrane (shapeless) |
-| Mace | Heavy Core over Breeze Rod |
-| Wind Charge | 1 Breeze Rod makes 4 (shapeless) |
+| Breeze Rod | Blaze Rod + Phantom Membrane |
+| Heavy Core | Netherite Ingot surrounded by 4 Obsidian |
+| Mace | Heavy Core above a Breeze Rod |
+| Wind Charge | 1 Breeze Rod makes 4 |
+| Rainbow Ingot | Nether Star + Netherite Ingot + Diamond Block (makes 4) |
+| Rainbow Sword / Pickaxe / Armor | Crafted from Rainbow Ingots in the standard tool and armor shapes |
 
-## Requirements
+---
 
-- Minecraft 1.16.5
-- Fabric Loader 0.14.0 or newer
-- Fabric API 0.42.0+1.16
-- Java 8 or newer to play (Java 17 to build)
+## 🔧 Fixes & Improvements
 
-## Install
+- Bedrock now properly drops itself when mined with the Bedrock Pickaxe.
+- The Mace no longer performs sword-style sweep attacks.
+- Optimized the Wind Charge texture for better loading.
+- Old builds no longer get in the way of new releases.
 
-Put the jar from `dist/` into your `mods` folder next to Fabric API. Use only one ModernKit jar at a time, and never the `-sources` or `-dev` jars.
+---
 
-## Building
+## 📦 Compatibility
 
-Requires Java 17 and Node.js.
+- **Minecraft:** 1.16.5 (Fabric)
+- **Requires:** Fabric API
+- **Works with:** Sodium and Iris
 
-    npm run build:java
+---
 
-This reads the previous jar in `dist/`, bumps the middle version digit (1.4.0 becomes 1.5.0), and runs `./gradlew clean build`. On success, the new jar replaces the old one in `dist/`. On failure, `gradle.properties` is restored and the errors are written to `gradle-failed-build.log`.
+## 🛠️ Development & Testing
 
-You can also build manually with `./gradlew build`; the jar appears in `build/libs/`.
+ModernKit's features are tested to ensure they work as intended. However, bugs and unexpected issues can still happen.
 
-## Changelog
+If you encounter a bug, experience unexpected behavior, or have suggestions for improvements, please let us know!
 
-### Added
-- Bedrock Pickaxe with bedrock mining and drops
-- Mace with the smash attack, particles and sounds
-- Heavy Core, Breeze Rod and Wind Charge (with a projectile entity and custom sounds)
-- Six spears with jab and charge attacks, the Lunge enchantment and the Mob Kabob advancement
-- First- and third-person spear animations
-- Automated jar build script (`npm run build:java`) and a GitHub Action that builds on every push
+## 🐛 Found a Bug?
 
-### Changed
-- Project renamed to ModernKit (mod id `modernkit`, package `com.example.modernkit`)
-- Mace uses a plain tool item, so it no longer performs sword sweep attacks
-- Wind Charge texture resized from 512x512 to 32x32
+Your feedback helps make ModernKit better.
 
-### Fixed
-- Bedrock drops its own block through a Mixin, because vanilla skips the loot table for bedrock
-- Stale jars in `dist/` no longer cause an outdated mod to load, because the build script replaces them
+**Discord:** `@.porel.`
 
-## Known limitations
+Feel free to reach out if you encounter any issues or have ideas for future additions.
 
-- Mace enchantments (Density, Breach, Wind Burst) are not implemented yet
-- Mace and spear sounds are built from vanilla sounds and may differ from the modern versions
-- Some spear client files are still empty placeholders
+---
 
-## License
-
-MIT
+**ModernKit — More possibilities. More items. One Minecraft.**
