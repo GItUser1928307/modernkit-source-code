@@ -5,6 +5,7 @@ Re-runnable: always starts from the originals kept in art-source/rainbow/."""
 import os, json, shutil, colorsys
 from collections import deque
 from PIL import Image
+from armor_details import decorate
 
 ICONS = 'src/main/resources/assets/modernkit/textures/item'
 ARMOR = 'src/main/resources/assets/minecraft/textures/models/armor'
@@ -187,8 +188,8 @@ for name in NAMES:
     print('%-20s background pixels removed: %d' % (name, removed))
 
 write_animation(make_ingot(), 'rainbow_ingot')
-armor_layer1().save(os.path.join(ARMOR, 'modernkit_rainbow_layer_1.png'))
-armor_layer2().save(os.path.join(ARMOR, 'modernkit_rainbow_layer_2.png'))
+decorate(armor_layer1(), 1, (232, 232, 245)).save(os.path.join(ARMOR, 'modernkit_rainbow_layer_1.png'))
+decorate(armor_layer2(), 2, (232, 232, 245)).save(os.path.join(ARMOR, 'modernkit_rainbow_layer_2.png'))
 print('--- armor body textures rebuilt')
 
 print('--- other item icons')

@@ -59,5 +59,5 @@ for layer, build in ((1, armor_layer1), (2, armor_layer2)):
     out = os.path.join(ARMOR, 'modernkit_emerald_layer_%d.png' % layer)
     if os.path.exists(out) and not os.environ.get('FORCE_ARMOR'):
         print('kept existing', os.path.basename(out)); continue
-    build().save(out)
+    decorate(build(), layer, (240, 200, 60)).save(out)
     print('created', os.path.basename(out))
