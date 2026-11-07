@@ -11,7 +11,8 @@ ARMOR = 'src/main/resources/assets/minecraft/textures/models/armor'
 SRC = 'art-source/rainbow'
 FRAMES = 5
 NAMES = ['rainbow_sword', 'rainbow_pickaxe', 'rainbow_helmet',
-         'rainbow_chestplate', 'rainbow_leggings', 'rainbow_boots']
+         'rainbow_chestplate', 'rainbow_leggings', 'rainbow_boots',
+         'rainbow_axe', 'rainbow_shovel']
 
 os.makedirs(SRC, exist_ok=True)
 os.makedirs(ARMOR, exist_ok=True)
