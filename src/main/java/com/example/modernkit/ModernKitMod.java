@@ -5,6 +5,7 @@ import org.apache.logging.log4j.Logger;
 
 import com.example.modernkit.item.ModItems;
 import com.example.modernkit.item.RainbowItems;
+import com.example.modernkit.item.EmeraldItems;
 import com.example.modernkit.entity.ModEntities;
 import com.example.modernkit.loot.SpearWorldLoot;
 import com.example.modernkit.enchantment.ModEnchantments;
@@ -22,6 +23,7 @@ public class ModernKitMod implements ModInitializer {
         ModSounds.register();
         ModItems.register();
         RainbowItems.register();
+        EmeraldItems.register();
         ModEnchantments.register();
         SpearWorldLoot.register();
         SpearPackets.register();

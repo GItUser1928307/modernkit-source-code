@@ -12,6 +12,13 @@ import net.minecraft.util.registry.Registry;
 public final class RainbowItems {
     private RainbowItems() {}
 
+    // ---- tunable stats for the axe and shovel (material damage is 4) ----
+    public static final float AXE_ATTACK_BONUS = 295.0F;    // 1 + 295 + 4 = 300 damage
+    public static final float AXE_ATTACK_SPEED = -3.7F;     // 4.0 - 3.7 = 0.3 attacks per second
+    public static final float SHOVEL_ATTACK_BONUS = 5.0F;   // 1 + 5 + 4 = 10 damage
+    public static final float SHOVEL_ATTACK_SPEED = -1.0F;  // 3.0 attacks per second
+    public static final int SHOVEL_AREA = 8;                // 8x8
+
     public static final Item RAINBOW_INGOT = new Item(
             new Item.Settings().group(ItemGroup.MATERIALS).fireproof());
 
@@ -25,6 +32,19 @@ public final class RainbowItems {
             RainbowToolMaterial.INSTANCE,
             RainbowToolMaterial.PICKAXE_ATTACK_BONUS,
             RainbowToolMaterial.PICKAXE_ATTACK_SPEED,
+            new Item.Settings().group(ItemGroup.TOOLS).fireproof());
+
+    public static final Item RAINBOW_AXE = new CustomAxeItem(
+            RainbowToolMaterial.INSTANCE,
+            AXE_ATTACK_BONUS,
+            AXE_ATTACK_SPEED,
+            new Item.Settings().group(ItemGroup.TOOLS).fireproof());
+
+    public static final Item RAINBOW_SHOVEL = new AreaShovelItem(
+            RainbowToolMaterial.INSTANCE,
+            SHOVEL_ATTACK_BONUS,
+            SHOVEL_ATTACK_SPEED,
+            SHOVEL_AREA,
             new Item.Settings().group(ItemGroup.TOOLS).fireproof());
 
     public static final Item RAINBOW_HELMET = armor(EquipmentSlot.HEAD);
@@ -41,6 +61,8 @@ public final class RainbowItems {
         register("rainbow_ingot", RAINBOW_INGOT);
         register("rainbow_sword", RAINBOW_SWORD);
         register("rainbow_pickaxe", RAINBOW_PICKAXE);
+        register("rainbow_axe", RAINBOW_AXE);
+        register("rainbow_shovel", RAINBOW_SHOVEL);
         register("rainbow_helmet", RAINBOW_HELMET);
         register("rainbow_chestplate", RAINBOW_CHESTPLATE);
         register("rainbow_leggings", RAINBOW_LEGGINGS);
