@@ -4,14 +4,23 @@
   "version": "${version}",
   "name": "ModernKit",
   "description": "Modern Minecraft items backported to 1.16.5.",
-  "authors": ["GItUser1928307"],
+  "authors": [
+    "GItUser1928307"
+  ],
   "license": "MIT",
   "environment": "*",
   "entrypoints": {
-    "main": ["com.example.modernkit.ModernKitMod"],
-    "client": ["com.example.modernkit.client.WindChargeClient"]
+    "main": [
+      "com.example.modernkit.ModernKitMod"
+    ],
+    "client": [
+      "com.example.modernkit.client.WindChargeClient",
+      "com.example.modernkit.client.ArmorClient"
+    ]
   },
-  "mixins": ["modernkit.mixins.json"],
+  "mixins": [
+    "modernkit.mixins.json"
+  ],
   "depends": {
     "fabricloader": ">=0.14.0",
     "fabric": "*",
